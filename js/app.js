@@ -67,7 +67,7 @@ function getData(path) {
 
 function play() {
 	source = context.createBufferSource();
-	source.connect(analyser);
+	source.connect(filter);
 	source.loop = true;
 	source.buffer = buffer;
 	paused = false;
