@@ -91,3 +91,9 @@ function pause() {
 qS('.playbtn').addEventListener('click', () => {
 	paused ? play() : pause();
 });
+qS('select').addEventListener('input', e => {
+	filter.type = e.target.value;
+});
+qS('input').addEventListener('input', e => {
+	filter.frequency.value = e.target.value;
+});
