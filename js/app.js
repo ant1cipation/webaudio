@@ -11,7 +11,8 @@ function qSA(q) {
 
 // code
 const context = new AudioContext();
-let source, buffer, paused = true, pauseTime, startTime;
+let source, buffer, paused = true,
+	pauseTime, startTime;
 
 // get source
 getData('sample.wav');
@@ -65,7 +66,7 @@ function getData(path) {
 
 function play() {
 	source = context.createBufferSource();
-	source.connect(context.destination);
+	source.connect(analyser);
 	source.loop = true;
 	source.buffer = buffer;
 	paused = false;
