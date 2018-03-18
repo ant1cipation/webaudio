@@ -12,6 +12,7 @@ html, body {
 body {
 	box-sizing: border-box;
 	background: linear-gradient(135deg, #0FF0B3 0%,#036ED9 100%);
+	font-family: 'Montserrat', sans-serif;
 }
 
 section {
@@ -19,6 +20,5 @@ section {
 	margin: 64px auto 0;
 	border-radius: 4px;
 	box-shadow: rgba(0, 0, 0, 0.25) 0 30px 18px -24px;
-	height: 320px;
 	background: #fff;
 }
