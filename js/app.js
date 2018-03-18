@@ -11,6 +11,9 @@ function qSA(q) {
 
 // code
 const context = new AudioContext();
+const filter = context.createBiquadFilter();
+const analyser = context.createAnalyser();
+filter.connect(analyser);
 let source, buffer, paused = true,
 	pauseTime, startTime;
 
@@ -18,7 +21,6 @@ let source, buffer, paused = true,
 getData('sample.wav');
 
 // initialize analyser and visualizer
-const analyser = context.createAnalyser();
 analyser.connect(context.destination);
 analyser.fftSize = 256;
 analyser.smoothingTimeConstant = 0.9;
@@ -29,6 +31,7 @@ let canvasCtx = canvas.getContext('2d');
 const width = canvas.width,
 	height = canvas.height;
 canvasCtx.clearRect(0, 0, width, height);
+draw();
 
 function draw() {
 	const drawVisual = requestAnimationFrame(draw);
@@ -47,8 +50,6 @@ function draw() {
 		x += barWidth + 1;
 	}
 }
-draw();
-
 
 function getData(path) {
 	let request = new XMLHttpRequest();
@@ -66,7 +67,7 @@ function getData(path) {
 
 function play() {
 	source = context.createBufferSource();
-	source.connect(analyser);
+	source.connect(filter);
 	source.loop = true;
 	source.buffer = buffer;
 	paused = false;
