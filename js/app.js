@@ -1,7 +1,19 @@
 'use strict';
 
+// helpers
+function qS(q) {
+	return document.querySelector(q);
+}
+
+function qSA(q) {
+	return document.querySelectorAll(q);
+}
+
+// code
 const context = new AudioContext();
 let source;
+
+getData('sample.wav');
 
 function getData(path) {
 	source = context.createBufferSource();
@@ -21,4 +33,10 @@ function getData(path) {
 	request.send();
 }
 
-getData('sample.wav');
+
+// playback with source.start(0) and source.stop()
+
+// event handlers
+document.querySelector('.playbtn').addEventListener('click', () => {
+	source.start(0);
+})
