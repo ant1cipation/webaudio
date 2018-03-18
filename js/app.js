@@ -99,5 +99,5 @@ qS('select').addEventListener('input', e => {
 	filter.type = e.target.value;
 });
 qS('input').addEventListener('input', e => {
-	filter.frequency.value = e.target.value;
+	filter.frequency.setValueAtTime(e.target.value, context.currentTime);
 });
