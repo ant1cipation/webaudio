@@ -3,7 +3,7 @@
 const context = new AudioContext();
 let source;
 
-const getData = path => {
+function getData(path) {
 	source = context.createBufferSource();
 	let request = new XMLHttpRequest();
 	request.open('GET', path, true);
@@ -17,7 +17,7 @@ const getData = path => {
 			source.connect(context.destination);
 			source.loop = true;
 		});
-	}
+	};
 	request.send();
 }
 
