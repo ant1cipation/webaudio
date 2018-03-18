@@ -44,3 +44,7 @@ section {
 	height: 320px;
 	padding: 0;
 }
+
+.frequency-range {
+	width: 100%;
+}
