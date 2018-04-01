@@ -13,15 +13,19 @@
 
 <body>
 	<section class="playback">
+		<div class="heading">Source</div>
 		<button class="material-icons">play_arrow</button>
 	</section>
 	<section class="gain">
-		<input type="range" class="gain-range" min="0" max="10" value="10">
+		<div class="heading">Gain</div>
+		<input type="range" class="gain-range" min="0" max="100" value="10">
 	</section>
 	<section class="visualizer">
+		<div class="heading">Analyser</div>
 		<canvas width="640" height="320"></canvas>
 	</section>
 	<section class="filter">
+		<div class="heading">Filter</div>
 		<select name="type">
 			<option value="lowpass" selected>Low-pass</option>
 			<option value="highpass">High-pass</option>

@@ -104,5 +104,5 @@ qS('.frequency-range').addEventListener('input', e => {
 	filter.frequency.setValueAtTime(e.target.value, context.currentTime);
 });
 qS('.gain-range').addEventListener('input', e => {
-	gain.gain.value = e.target.value / 10;
+	gain.gain.setValueAtTime(e.target.value / 100, context.currentTime);
 });
