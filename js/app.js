@@ -11,7 +11,9 @@ function qSA(q) {
 
 // code
 const context = new AudioContext();
+const gain = context.createGain();
 const filter = context.createBiquadFilter();
+gain.connect(filter);
 const analyser = context.createAnalyser();
 filter.connect(analyser);
 let source, buffer, paused = true,
@@ -67,7 +69,7 @@ function getData(path) {
 
 function play() {
 	source = context.createBufferSource();
-	source.connect(filter);
+	source.connect(gain);
 	source.loop = true;
 	source.buffer = buffer;
 	paused = false;
@@ -98,6 +100,9 @@ qS('.playback button').addEventListener('click', () => {
 qS('select').addEventListener('input', e => {
 	filter.type = e.target.value;
 });
-qS('input').addEventListener('input', e => {
+qS('.frequency-range').addEventListener('input', e => {
 	filter.frequency.setValueAtTime(e.target.value, context.currentTime);
+});
+qS('.gain-range').addEventListener('input', e => {
+	gain.gain.value = e.target.value / 10;
 });
